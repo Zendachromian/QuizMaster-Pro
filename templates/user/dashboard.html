@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+<div id="userApp" class="container py-4">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Welcome back, {{ user.full_name }}!</h2>
+        <div>
+            <button class="btn btn-outline-primary me-2" @click="refreshData">
+                <i class="bi bi-arrow-clockwise"></i>
+            </button>
+            <button class="btn btn-outline-primary" @click="exportData">
+                <i class="bi bi-download"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3 mb-3" v-for="stat in dashboardData.stats" :key="stat.label">
+            <div class="card shadow-sm">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-1">{{ stat.value }}</h4>
+                        <p class="mb-0 text-muted">{{ stat.label }}</p>
+                    </div>
+                    <i :class="stat.icon + ' fs-1 text-secondary'"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Subjects Browser -->
+        <div class="col-lg-8 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Browse Subjects & Quizzes</h5>
+                </div>
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search..." v-model="searchQuery">
+                        <button class="btn btn-outline-secondary" @click="searchQuery = ''"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div v-for="subject in filteredSubjects" :key="subject.id">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6>{{ subject.name }}</h6>
+                                    <p class="text-muted small">{{ subject.description }}</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <button class="btn btn-sm btn-primary w-100" @click="exploreSubject(subject.id)">Explore</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Chart -->
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Performance Analytics</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="performanceChart"></canvas>
+                    <ul class="list-group list-group-flush mt-3">
+                        <li class="list-group-item" v-for="attempt in dashboardData.recent_attempts" :key="attempt.id">
+                            <div class="d-flex justify-content-between">
+                                <small>{{ attempt.quiz_title }}</small>
+                                <small :class="getScoreClass(attempt.score_percentage)">{{ attempt.score_percentage }}%</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="module">
+// use global axios and Vue loaded via CDN
+ const { createApp } = Vue
+const axiosInstance = axios
+ 
+ createApp({
+    data() {
+        return {
+            dashboardData: {
+                stats: [],
+                subjects: [],
+                recent_attempts: []
+            },
+            searchQuery: ''
+        }
+    },
+    computed: {
+        filteredSubjects() {
+            const q = this.searchQuery.toLowerCase().trim()
+            return this.dashboardData.subjects.filter(s =>
+                s.name.toLowerCase().includes(q) ||
+                s.description.toLowerCase().includes(q)
+            )
+        }
+    },
+    methods: {
+        async loadDashboard() {
+            try {
+                const res = await axiosInstance.get('/api/user/dashboard')
+                this.dashboardData = res.data
+                this.initChart()
+            } catch (e) {
+                console.error(e)
+            }
+        },
+        exploreSubject(id) {
+            window.location.href = `/user/subjects/${id}/chapters`
+        },
+        getScoreClass(p) {
+            return p >= 80 ? 'text-success' : p >= 60 ? 'text-warning' : 'text-danger'
+        },
+        async refreshData() {
+            await this.loadDashboard()
+        },
+        async exportData() {
+            try {
+                const res = await axiosInstance.post('/api/user/export-data')
+                alert(res.data.message)
+            } catch (e) {
+                alert('Export failed')
+            }
+        },
+        initChart() {
+            const ctx = document.getElementById('performanceChart').getContext('2d')
+            const labels = this.dashboardData.recent_attempts.map(a => a.quiz_title)
+            const data = this.dashboardData.recent_attempts.map(a => a.score_percentage)
+            new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets: [{ label: 'Score %', data, borderColor: '#0d6efd', tension: 0.4 }] },
+                options: { scales: { y: { min: 0, max: 100 } } }
+            })
+        }
+    },
+    mounted() {
+        this.loadDashboard()
+    }
+}).mount('#userApp')
+</script>
+{% endblock %}

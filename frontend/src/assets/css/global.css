@@ -1,0 +1,779 @@
+/* Global Styles for QuizMaster Pro */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+}
+
+/* Enhanced Text contrast fixes */
+.card-header.bg-white,
+.card-header.bg-white h5,
+.card-header.bg-white .h5,
+.card-header.bg-light,
+.card-header.bg-light h5,
+.card-header.bg-light .h5 {
+  color: #343a40 !important;
+}
+
+.bg-white .text-dark,
+.bg-light .text-dark,
+.bg-white.text-dark,
+.bg-light.text-dark {
+  color: #212529 !important;
+}
+
+.bg-warning .text-white {
+  color: #343a40 !important;
+}
+
+.bg-warning.text-white h3,
+.bg-warning.text-white p {
+  color: #343a40 !important;
+}
+
+/* Improved text-muted visibility */
+.text-muted {
+  color: #495057 !important;
+}
+
+.bg-dark .text-muted,
+.bg-primary .text-muted,
+.bg-secondary .text-muted {
+  color: #adb5bd !important;
+}
+
+/* Better contrast for badges on light backgrounds */
+.badge.bg-light {
+  color: #212529 !important;
+  border: 1px solid #dee2e6;
+}
+
+.badge.bg-light.text-dark {
+  color: #212529 !important;
+  background-color: #f8f9fa !important;
+  border: 1px solid #dee2e6;
+}
+
+/* Enhanced hover states with proper text contrast */
+.card:hover .text-muted {
+  color: #343a40 !important;
+}
+
+.btn:hover,
+.card:hover,
+.list-group-item:hover {
+  transition: all 0.2s ease;
+}
+
+.list-group-item:hover .text-muted {
+  color: #212529 !important;
+}
+
+/* Better visibility for small text */
+.small, .text-sm {
+  color: #495057 !important;
+}
+
+.bg-light .small,
+.bg-white .small,
+.bg-light .text-sm,
+.bg-white .text-sm {
+  color: #343a40 !important;
+}
+
+/* Card background contrast fixes */
+.card.bg-light,
+.card.bg-light .card-body,
+.card.bg-light h1,
+.card.bg-light h2,
+.card.bg-light h3,
+.card.bg-light h4,
+.card.bg-light h5,
+.card.bg-light h6,
+.card.bg-light p,
+.card.bg-light span:not(.badge) {
+  color: #343a40 !important;
+}
+
+/* Page background contrast fixes */
+.bg-light,
+.bg-light h1,
+.bg-light h2,
+.bg-light h3,
+.bg-light h4,
+.bg-light h5,
+.bg-light h6,
+.bg-light p,
+.bg-light .card:not(.bg-primary):not(.bg-success):not(.bg-danger):not(.bg-warning):not(.bg-info):not(.bg-dark) {
+  color: #343a40 !important;
+}
+
+/* Badge contrast fixes */
+.badge.bg-primary {
+  color: white !important;
+}
+
+.badge.bg-success {
+  color: white !important;
+}
+
+.badge.bg-danger {
+  color: white !important;
+}
+
+.badge.bg-warning {
+  color: #343a40 !important;
+  background-color: #ffc107 !important;
+}
+
+.badge.bg-warning.text-dark {
+  color: #212529 !important;
+  background-color: #ffc107 !important;
+}
+
+.badge.bg-info {
+  color: white !important;
+}
+
+.badge.bg-light {
+  color: #343a40 !important;
+  background-color: #f8f9fa !important;
+  border: 1px solid #dee2e6;
+}
+
+.badge.bg-dark {
+  color: white !important;
+}
+
+/* Enhanced hover effects for cards and interactive elements */
+.card:hover {
+  background-color: #fff !important;
+}
+
+.card:hover .text-muted {
+  color: #495057 !important;
+}
+
+.card:hover .small {
+  color: #343a40 !important;
+}
+
+/* Disable hover effects for specific elements */
+.no-hover-effect,
+.no-hover-effect:hover,
+.no-hover-effect .card-header:hover,
+.no-hover-effect .card-body:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  background-color: inherit !important;
+  transition: none !important;
+}
+
+.stats-card-no-hover,
+.stats-card-no-hover:hover {
+  transform: none !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08) !important;
+  transition: none !important;
+}
+
+.table-no-hover tbody tr:hover {
+  background-color: inherit !important;
+}
+
+/* Performance Summary Table Styling */
+.performance-summary-table thead th,
+.performance-summary-table tbody td {
+  color: white !important;
+}
+
+/* List group items hover effects */
+.list-group-item:hover {
+  background-color: #f8f9fa !important;
+  color: #212529 !important;
+}
+
+.list-group-item:hover .text-muted {
+  color: #495057 !important;
+}
+
+.list-group-item:hover .small {
+  color: #343a40 !important;
+}
+
+/* Button outline contrast fixes */
+.btn-outline-warning {
+  color: #856404 !important;
+  border-color: #ffc107 !important;
+}
+
+.btn-outline-warning:hover {
+  color: #343a40 !important;
+  background-color: #ffc107 !important;
+}
+
+/* Enhanced dropdown contrast */
+.dropdown-menu .text-muted {
+  color: #6c757d !important;
+}
+
+.dropdown-item:hover .text-muted {
+  color: #495057 !important;
+}
+
+/* Table row hover effects */
+.table-hover tbody tr:hover {
+  background-color: #f8f9fa !important;
+}
+
+.table-hover tbody tr:hover .text-muted {
+  color: #495057 !important;
+}
+
+/* Modal and alert text improvements */
+.alert .text-muted {
+  color: #495057 !important;
+}
+
+.modal-body .text-muted {
+  color: #6c757d !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0056b3;
+}
+
+/* Animation classes */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.3s ease;
+}
+
+.slide-enter-from {
+  transform: translateX(100px);
+}
+
+.slide-leave-to {
+  transform: translateX(-100px);
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Quiz card hover effects with specific text color changes */
+.quiz-card {
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.quiz-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: #fff !important;
+}
+
+.quiz-card:hover .text-muted {
+  color: #495057 !important;
+}
+
+.quiz-card:hover .card-title,
+.quiz-card:hover h6 {
+  color: #212529 !important;
+}
+
+.quiz-card:hover .card-body small {
+  color: #343a40 !important;
+}
+
+.quiz-card:hover .d-flex small {
+  color: #212529 !important;
+}
+
+.chapter-card:hover h5 {
+  color: #212529 !important;
+}
+
+/* Chart background styling */
+.chart-white-bg {
+  background-color: white !important;
+}
+
+.chart-white-bg .card-body {
+  background-color: white !important;
+}
+
+/* Score badge styles */
+.score-badge {
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 15px;
+}
+
+.score-excellent {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.score-good {
+  background-color: var(--info-color);
+  color: white;
+}
+
+.score-average {
+  background-color: var(--warning-color);
+  color: #343a40;
+}
+
+.score-poor {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+/* Custom button styles */
+.btn-custom {
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Quiz timer */
+.quiz-timer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-timer.warning {
+  background: var(--warning-color);
+  color: #343a40;
+  animation: pulse 1s infinite;
+}
+
+.quiz-timer.danger {
+  background: var(--danger-color);
+  animation: pulse 0.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Question navigation */
+.question-nav {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.question-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #dee2e6;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #343a40;
+}
+
+.question-nav-btn:hover {
+  background: var(--light-color);
+  color: #212529;
+}
+
+.question-nav-btn.current {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.question-nav-btn.answered {
+  background: var(--success-color);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.question-nav-btn.flagged {
+  background: var(--warning-color);
+  color: #343a40;
+  border-color: var(--warning-color);
+}
+
+/* Statistics cards */
+.stats-card {
+  background: linear-gradient(135deg, var(--primary-color), #0056b3);
+  color: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.stats-card-icon {
+  font-size: 2.5rem;
+  opacity: 0.7;
+}
+
+/* Progress bars */
+.progress-custom {
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-custom {
+  transition: width 0.6s ease;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .quiz-timer {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .question-nav {
+    justify-content: center;
+  }
+  
+  .question-nav-btn {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bs-body-bg: #1a1a1a;
+    --bs-body-color: #ffffff;
+  }
+  
+  .quiz-card {
+    background: #2d2d2d;
+    border-color: #404040;
+  }
+  
+  .quiz-card:hover {
+    background: #3a3a3a;
+  }
+}
+
+/* Additional specific fixes for problematic combinations */
+.bg-gradient-warning.text-dark,
+.bg-gradient-warning .text-dark {
+  color: #212529 !important;
+}
+
+.bg-warning.text-white {
+  color: #212529 !important;
+}
+
+/* Ensure proper contrast for form controls */
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0056b3;
+}
+
+/* Animation classes */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.3s ease;
+}
+
+.slide-enter-from {
+  transform: translateX(100px);
+}
+
+.slide-leave-to {
+  transform: translateX(-100px);
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Custom card styles */
+.quiz-card {
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.quiz-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Score badge styles */
+.score-badge {
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 15px;
+}
+
+.score-excellent {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.score-good {
+  background-color: var(--info-color);
+  color: white;
+}
+
+.score-average {
+  background-color: var(--warning-color);
+  color: black;
+}
+
+.score-poor {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+/* Custom button styles */
+.btn-custom {
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Quiz timer */
+.quiz-timer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-timer.warning {
+  background: var(--warning-color);
+  color: black;
+  animation: pulse 1s infinite;
+}
+
+.quiz-timer.danger {
+  background: var(--danger-color);
+  animation: pulse 0.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Question navigation */
+.question-nav {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.question-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #dee2e6;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.question-nav-btn:hover {
+  background: var(--light-color);
+}
+
+.question-nav-btn.current {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.question-nav-btn.answered {
+  background: var(--success-color);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.question-nav-btn.flagged {
+  background: var(--warning-color);
+  color: black;
+  border-color: var(--warning-color);
+}
+
+/* Statistics cards */
+.stats-card {
+  background: linear-gradient(135deg, var(--primary-color), #0056b3);
+  color: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.stats-card-icon {
+  font-size: 2.5rem;
+  opacity: 0.7;
+}
+
+/* Progress bars */
+.progress-custom {
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-custom {
+  transition: width 0.6s ease;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .quiz-timer {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .question-nav {
+    justify-content: center;
+  }
+  
+  .question-nav-btn {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bs-body-bg: #1a1a1a;
+    --bs-body-color: #ffffff;
+  }
+  
+  .quiz-card {
+    background: #2d2d2d;
+    border-color: #404040;
+  }
+  
+  .quiz-card:hover {
+    background: #3a3a3a;
+  }
+}
